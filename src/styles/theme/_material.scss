@@ -1,0 +1,8 @@
+@use '@angular/material' as mat;
+
+// Material component overrides
+.chat-dialog-panel.mat-mdc-dialog-container {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+  overflow: hidden !important;
+}

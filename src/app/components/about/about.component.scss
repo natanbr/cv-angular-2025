@@ -1,0 +1,44 @@
+.about-me {
+  background-color: white;
+  z-index: 2;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.contact-info {
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  i {
+    color: var(--primary-color);
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 2fr .5fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

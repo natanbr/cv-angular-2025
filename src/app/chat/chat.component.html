@@ -1,0 +1,51 @@
+<div class="chat-container">
+  <mat-toolbar color="primary" class="chat-header">
+    <div class="header-content">
+      <div class="bot-info">
+        <div class="bot-avatar">
+          <mat-icon>smart_toy</mat-icon>
+        </div>
+        <span class="bot-name">AI Agent</span>
+      </div>
+      <button mat-icon-button (click)="closeChat()" aria-label="Close chat">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <div class="messages-container">
+    <div class="message-list" #messageList>
+      <div *ngFor="let message of messages"
+           class="message-wrapper"
+           [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+        <div class="message-bubble">
+          <div *ngIf="message.sender === 'bot'" class="bot-avatar">
+            <mat-icon>smart_toy</mat-icon>
+          </div>
+          <div class="message-content">
+            {{ message.text }}
+          </div>
+        </div>
+        <div class="message-timestamp">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <mat-form-field appearance="outline" class="message-input">
+      <input matInput
+             [(ngModel)]="newMessage"
+             placeholder="Type a message..."
+             (keyup.enter)="sendMessage()"
+             autocomplete="off">
+    </mat-form-field>
+    <button mat-fab
+            color="primary"
+            class="send-button"
+            [disabled]="!newMessage.trim()"
+            (click)="sendMessage()">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</div>

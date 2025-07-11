@@ -1,0 +1,52 @@
+.footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+
+  &-content {
+    max-width: 700px;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+
+  &-light {
+    background-color: white;
+    color: var(--primary-color);
+  }
+
+  &-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+}
+
+.social-links {
+  a {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+}

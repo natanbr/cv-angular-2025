@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/theme/material';
+
+@use 'styles/variables';
+@use 'styles/base';
+
+@use 'styles/components/sections';
+@use 'styles/responsive';
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
