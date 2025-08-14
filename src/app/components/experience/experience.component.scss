@@ -36,6 +36,31 @@
     font-size: 1.25rem;
   }
 
+  .title-with-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+    span {
+      flex: 1;
+    }
+
+    .view-work-button {
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+      margin-left: 0.5rem;
+
+      mat-icon {
+        margin-right: 4px;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
   h4 {
     font-size: 1.15rem;
     color: #222 !important;
@@ -60,5 +85,18 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .experience-details {
+    .title-with-button {
+      flex-direction: column;
+      align-items: center;
+
+      .view-work-button {
+        margin-top: 0.5rem;
+        margin-left: 0;
+        width: auto;
+      }
+    }
   }
 }

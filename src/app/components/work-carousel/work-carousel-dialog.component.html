@@ -1,0 +1,26 @@
+<div class="carousel-dialog">
+  <div class="carousel-header">
+    <h2>{{ data.title }}</h2>
+    <button mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="carousel-container">
+    <swiper-container
+      slides-per-view="1"
+      navigation="true"
+      pagination="true"
+      effect="fade"
+      speed="500"
+      loop="true"
+      autoplay="true"
+      autoplay-delay="3000"
+      autoplay-disable-on-interaction="false"
+      class="work-carousel">
+      <swiper-slide *ngFor="let image of data.images">
+        <img [src]="image" [alt]="data.title + ' screenshot'" class="carousel-image">
+      </swiper-slide>
+    </swiper-container>
+  </div>
+</div>

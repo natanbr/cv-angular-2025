@@ -9,11 +9,16 @@
           <img ngSrc="big_logo.svg" alt="Intel logo" class="icon" fill style="position: relative">
         </div>
         <div class="experience-details">
-          <h3>FE Team lead, Project lead <span class="experience-company">&#64; Blockchain inelegance group. (2018 - Present)</span>
+          <h3 class="title-with-button">
+            <span>FE Team lead, Project lead <span class="experience-company">&#64; Blockchain inelegance group. (2018 - Present)</span></span>
+            <button mat-raised-button color="primary" class="view-work-button" (click)="openWorkCarousel('blockchain', 'Blockchain Intelligence Group')">
+              <mat-icon>photo_library</mat-icon>
+              <span>See My Work</span>
+            </button>
           </h3>
           <h4 class="mt-2">Front-end Team Lead & Project lead</h4>
           <p>
-            As the investigation graphing tool (“iGraph”) gained traction, I transitioned from leading its initial
+            As the investigation graphing tool <a href="https://blockchaingroup.io/qlue/" target="_blank">“QLUE”</a> gained traction, I transitioned from leading its initial
             development into a Principal Engineer role—driving its evolution into an ecosystem of integrated tools
             tailored for blockchain investigation. My focus expanded to long-term strategy, scalable architecture,
             and enhancing investigative workflows through thoughtful tool integration. I also began incorporating AI
