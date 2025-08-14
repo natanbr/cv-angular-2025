@@ -3,8 +3,5 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import Clarity from '@microsoft/clarity';
 
-const projectId = 'suft456k9p';
-Clarity.init(projectId);
-
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));

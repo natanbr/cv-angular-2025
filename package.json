@@ -22,6 +22,7 @@
     "@angular/router": "^19.1.0",
     "@microsoft/clarity": "^1.0.0",
     "@tailwindcss/postcss": "^4.1.11",
+    "ngx-clarity": "^2.3.0",
     "rxjs": "~7.8.0",
     "swiper": "^11.2.10",
     "tslib": "^2.3.0",
