@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import {StaggerChildrenDirective} from '../../directives/stagger-children.directive';
 
 @Component({
   selector: 'app-publications',
   standalone: true,
-  imports: [],
+  imports: [
+    StaggerChildrenDirective
+  ],
   templateUrl: './publications.component.html',
-  styleUrl: './publications.component.scss'
+  styleUrls: ['./publications.component.scss', '../../styles/animations.scss']
 })
 export class PublicationsComponent {
 }

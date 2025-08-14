@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { FadeInBottomDirective } from '../../directives/fade-in-bottom.directive';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [],
+  imports: [FadeInBottomDirective],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  styleUrls: ['./about.component.scss', '../../styles/animations.scss']
 })
 export class AboutComponent {
+  constructor() {}
 }
