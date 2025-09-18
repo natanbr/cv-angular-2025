@@ -1,13 +1,10 @@
 .section {
-  position: sticky;
-  top: 0;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem 2rem;
+  padding: 6rem 2rem;
 
   &-container {
     width: 100%;

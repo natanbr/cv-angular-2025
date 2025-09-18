@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from '../components/hero/hero.component';
 import { AboutComponent } from '../components/about/about.component';
-import { PublicationsComponent } from '../components/publications/publications.component';
 import { ExperienceComponent } from '../components/experience/experience.component';
 import { FooterComponent } from '../components/footer/footer.component';
+import { BlogComponent } from '../components/blog/blog.component';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { FooterComponent } from '../components/footer/footer.component';
   imports: [
     HeroComponent,
     AboutComponent,
-    PublicationsComponent,
+    BlogComponent,
     ExperienceComponent,
     FooterComponent
   ],
