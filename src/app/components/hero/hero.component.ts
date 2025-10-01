@@ -65,7 +65,7 @@ class Brick {
     if (this.visible) {
       ctx.beginPath();
       ctx.rect(this.x, this.y, this.width, this.height);
-      ctx.fillStyle = 'rgba(0,0,0,0.8)';
+      ctx.fillStyle = 'rgba(0,0,0,0.9)';
       ctx.fill();
       ctx.closePath();
     }
@@ -88,7 +88,8 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   private bricks: Brick[] = [];
   private animationFrameId!: number;
   private animationStartTime!: number;
-  private readonly animationDuration = 7000; // 7 seconds
+  private readonly animationDuration = 8000; // 8 seconds
+  private readonly fadeOutDuration = 1000; // 1 second
 
   ngAfterViewInit(): void {
     const canvas = this.pongCanvas.nativeElement;
@@ -120,8 +121,8 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
   initBricks(): void {
     this.bricks = [];
-    const brickRowCount = 10;
-    const brickColumnCount = 20;
+    const brickRowCount = 15;
+    const brickColumnCount = 25;
     const canvas = this.pongCanvas.nativeElement;
     if (!canvas.width || !canvas.height) return;
     const brickWidth = canvas.width / brickColumnCount;
@@ -129,7 +130,9 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
     for (let c = 0; c < brickColumnCount; c++) {
       for (let r = 0; r < brickRowCount; r++) {
-        this.bricks.push(new Brick(c * brickWidth, r * brickHeight, brickWidth, brickHeight));
+        if (c > 4 && r > 2 && c < brickColumnCount - 4 && r < brickRowCount - 2)
+          this.bricks.push(new Brick(c * brickWidth, r * brickHeight, brickWidth, brickHeight));
+          // continue; // create a hollow center
       }
     }
   }
@@ -153,15 +156,16 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
     this.balls = [];
     const canvas = this.pongCanvas.nativeElement;
     // Increased speed for a more dynamic animation that clears in ~5s
-    const speed = 8;
+    const speed = 9;
     const initialPositions = [
-      { x: canvas.width * 0.2, y: canvas.height * 0.3, dx: speed, dy: speed },
-      { x: canvas.width * 0.8, y: canvas.height * 0.3, dx: -speed, dy: speed },
-      { x: canvas.width * 0.2, y: canvas.height * 0.7, dx: speed, dy: -speed },
-      { x: canvas.width * 0.8, y: canvas.height * 0.7, dx: -speed, dy: -speed },
-      { x: canvas.width * 0.5, y: canvas.height * 0.2, dx: speed, dy: speed },
-      { x: canvas.width * 0.5, y: canvas.height * 0.8, dx: -speed, dy: -speed },
+      { x: canvas.width * 0.1, y: canvas.height * 0.3, dx: speed, dy: speed },
+      { x: canvas.width * 0.9, y: canvas.height * 0.3, dx: -speed, dy: speed },
+      { x: canvas.width * 0.1, y: canvas.height * 0.7, dx: speed, dy: -speed },
+      { x: canvas.width * 0.9, y: canvas.height * 0.7, dx: -speed, dy: -speed },
+      { x: canvas.width * 0.0, y: canvas.height * 0.0, dx: speed, dy: speed },
+      { x: canvas.width * 0.9, y: canvas.height * 0.9, dx: -speed, dy: -speed },
       { x: canvas.width * 0.3, y: canvas.height * 0.5, dx: speed, dy: speed },
+      { x: canvas.width * 0.5, y: canvas.height * 0.3, dx: speed, dy: speed },
       { x: canvas.width * 0.7, y: canvas.height * 0.5, dx: -speed, dy: -speed },
     ];
 
@@ -175,9 +179,15 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
     const elapsedTime = Date.now() - this.animationStartTime;
 
     const allBricksCleared = this.bricks.every(brick => !brick.visible);
+
     if (elapsedTime > this.animationDuration || allBricksCleared) {
       this.endAnimation();
       return;
+    }
+
+    if (elapsedTime > (this.animationDuration - this.fadeOutDuration)) {
+      const canvas = this.pongCanvas.nativeElement;
+      this.fadeOutCanvas(canvas, this.fadeOutDuration);
     }
 
     this.ctx.clearRect(0, 0, this.pongCanvas.nativeElement.width, this.pongCanvas.nativeElement.height);
@@ -199,6 +209,22 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
     if (canvas) {
       canvas.style.display = 'none';
     }
+  }
+
+  fadeOutCanvas(canvas: HTMLCanvasElement, duration: number): void {
+    let opacity = 1;
+    const step = 16 / duration;
+    const fade = () => {
+      opacity -= step;
+      if (opacity <= 0) {
+        canvas.style.opacity = '0';
+        canvas.style.display = 'none';
+      } else {
+        canvas.style.opacity = opacity.toString();
+        requestAnimationFrame(fade);
+      }
+    };
+    fade();
   }
 
   updateBallPosition(ball: Ball): void {
