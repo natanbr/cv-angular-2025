@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {ChatButtonComponent} from './chat-button/chat-button.component';
 
@@ -10,7 +10,8 @@ import {ChatButtonComponent} from './chat-button/chat-button.component';
     ChatButtonComponent
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent {
 }

@@ -1,15 +1,15 @@
 <header class="section hero">
-  <canvas id="pong-canvas" #pongCanvas></canvas>
+  <spline-viewer url="https://prod.spline.design/xtth1k-dZj-YN4Jd/scene.splinecode" class="spline-bg" events-target="global"></spline-viewer>
   <nav class="main-nav">
     <a href="#" class="nav-brand">N.B.</a>
-    <div class="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" aria-label="Toggle navigation menu" [attr.aria-expanded]="isMenuOpen" aria-controls="primary-navigation">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+    <ul id="primary-navigation" class="nav-links" [class.active]="isMenuOpen">
+      <li><a href="#about" (click)="closeMenu()">About</a></li>
+      <li><a href="#experience" (click)="closeMenu()">Experience</a></li>
+      <li><a href="#blog" (click)="closeMenu()">Blog</a></li>
+      <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
     </ul>
   </nav>
   <div class="hero-content">
