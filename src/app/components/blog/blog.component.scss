@@ -9,7 +9,7 @@
 }
 
 .publication-item {
-  background-color: white;
+  background-color: var(--surface-color);
   padding: 1.5rem 2rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -31,7 +31,7 @@
 
 .publication-meta {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-muted);
   font-style: italic;
   margin-bottom: 1rem;
 }
