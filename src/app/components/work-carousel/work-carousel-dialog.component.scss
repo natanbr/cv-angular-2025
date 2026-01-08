@@ -43,3 +43,40 @@
 ::ng-deep .swiper-pagination-bullet-active {
   background-color: var(--primary-color) !important;
 }
+
+/* Theme-aligned dialog surface */
+:host ::ng-deep .mat-mdc-dialog-surface {
+  background-color: var(--surface-color);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+/* Keep header primary and add a subtle divider */
+.carousel-header {
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Controls use primary by default, secondary on hover/focus */
+:host ::ng-deep .swiper-button-next,
+:host ::ng-deep .swiper-button-prev {
+  color: var(--primary-color) !important;
+  transition: color 0.2s ease;
+}
+
+:host ::ng-deep .swiper-button-next:hover,
+:host ::ng-deep .swiper-button-prev:hover,
+:host ::ng-deep .swiper-button-next:focus-visible,
+:host ::ng-deep .swiper-button-prev:focus-visible {
+  color: var(--secondary-color) !important;
+}
+
+/* Pagination bullets match theme */
+:host ::ng-deep .swiper-pagination-bullet {
+  background-color: var(--border-color) !important;
+  opacity: 1;
+}
+
+:host ::ng-deep .swiper-pagination-bullet-active {
+  background-color: var(--primary-color) !important;
+}
